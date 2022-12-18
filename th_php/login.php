@@ -1,3 +1,9 @@
+<?php
+include_once './controller/c_login.php';
+$controller = new c_login();
+$controller->login();
+?>
+
 <!DOCTYPE html>
 <html>
 

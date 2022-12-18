@@ -1,3 +1,8 @@
+<?php
+include_once './controller/c_login.php';
+$controller = new c_login();
+$controller->register();
+?>
 <!DOCTYPE html>
 <html>
 

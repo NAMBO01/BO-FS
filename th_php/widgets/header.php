@@ -39,7 +39,7 @@
         <div class="container">
             <div class="header-bottom-left">
                 <div class="logo">
-                    <a href="trangchu.php"><img src="images/logo.png" alt=" " /></a>
+                    <a href="index.php"><img src="images/logo.png" alt=" " /></a>
                 </div>
                 <div class="search">
                     <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
@@ -51,8 +51,20 @@
             <div class="header-bottom-right">
                 <div class="account"><a href="login.php"><span> </span>YOUR ACCOUNT</a></div>
                 <ul class="login">
-                    <li><a href="login.php"><span> </span>LOGIN</a></li> |
-                    <li><a href="register.php">SIGNUP</a></li>
+                    <?php
+                    if (isset($_SESSION['user_info'])) {
+                    ?>
+                        <li><i class="fa-solid fa-user"></i> <a href=/don-hang><?php echo $_SESSION['user_info']->ten ?></a></li> |
+                        <li><a href='logout.php'>ĐĂNG XUẤT</a></li>
+                    <?php
+                    } else {
+                    ?>
+                        <li><a href="login.php"><span> </span>LOGIN</a></li> |
+                        <li><a href="register.php">SIGNUP</a></li>
+                    <?php
+                    }
+                    ?>
+
                 </ul>
                 <div class="cart"><a href="#"><span> </span>CART</a></div>
                 <div class="clearfix"> </div>
