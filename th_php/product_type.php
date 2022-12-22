@@ -1,3 +1,7 @@
+<?php
+include_once './controller/c_san_pham.php';
+$controller = new c_san_pham();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -14,8 +18,6 @@
     <?php include_once("modules/mod_product.php"); ?>
 
     <?php include_once("widgets/footer.php"); ?>
-
 </body>
 
 </html>
-test

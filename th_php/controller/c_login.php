@@ -38,6 +38,7 @@ class c_login
             echo "<script>alert('Bạn đã đăng nhập thành công')</script>";
         }
     }
+    
 
     function register()
     {

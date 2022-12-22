@@ -66,7 +66,7 @@
                     ?>
 
                 </ul>
-                <div class="cart"><a href="#"><span> </span>CART</a></div>
+                <div class="cart"><a href="gio_hang.php"><span> </span>CART</a></div>
                 <div class="clearfix"> </div>
             </div>
             <div class="clearfix"> </div>

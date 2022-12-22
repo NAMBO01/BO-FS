@@ -24,6 +24,13 @@ class xl_user extends database
         $result = $this->loadRow();
         return $result;
     }
+    function thong_tin_nguoi_dung_quan_tri_theo_tai_khoan($tai_khoan)
+    {
+        $lenh_sql = "SELECT * FROM sb_user WHERE tai_khoan = '$tai_khoan' AND id_loai_user>4";
+        $this->setQuery($lenh_sql);
+        $result = $this->loadRow();
+        return $result;
+    }
 
     function thong_tin_nguoi_dung_theo_id($id_nguoi_dung)
     {
@@ -86,6 +93,14 @@ class xl_user extends database
     function danh_sach_loai_user()
     {
         $lenh_sql = "SELECT * FROM loai_user";
+        $this->setQuery($lenh_sql);
+        $result = $this->loadAllRow();
+        return $result;
+    }
+    function dem_nguoi_dung()
+    {
+        $lenh_sql = "SELECT COUNT(*) as so_luong_khach_hang
+        FROM sb_user WHERE id_loai_user < 5";
         $this->setQuery($lenh_sql);
         $result = $this->loadAllRow();
         return $result;

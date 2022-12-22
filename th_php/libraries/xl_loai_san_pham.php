@@ -15,7 +15,7 @@ class xl_loai_san_pham extends database
                 $item->ds_con = $ds_con;
             }
         }
-
+        // echo '<pre>', print_r($ds_con), '</pre>';
         return $result;
     }
 

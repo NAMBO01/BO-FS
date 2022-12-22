@@ -4,12 +4,18 @@ class xl_san_pham extends database
 {
     function danh_sach_tat_ca_san_pham()
     {
-        $lenh_sql = "SELECT * FROM bs_san_pham";
+        $lenh_sql = "SELECT * FROM sb_san_pham ";
         $this->setQuery($lenh_sql);
         $result = $this->loadAllRow();
         return $result;
     }
-
+    function san_pham_theo_id($id)
+    {
+        $lenh_sql = "SELECT * FROM sb_san_pham WHERE ID = '$id' ";
+        $this->setQuery($lenh_sql);
+        $result = $this->loadAllRow();
+        return $result;
+    }
     function danh_sach_san_pham_noi_bat()
     {
         $lenh_sql = "SELECT * FROM sb_san_pham WHERE noi_bat = 1";
@@ -74,10 +80,16 @@ class xl_san_pham extends database
         $result = $this->loadAllRow();
         return $result;
     }
-
+    function ten_san_pham_theo_loai($id_loai_san_pham)
+    {
+        $lenh_sql = "SELECT ten_loai_sp FROM sb_loai_san_pham  WHERE id_loai_sp = $id_loai_san_pham ";
+        $this->setQuery($lenh_sql);
+        $result = $this->loadAllRow();
+        return $result;
+    }
     function thong_tin_san_pham_theo_id($id_sp)
     {
-        $lenh_sql = "SELECT sp.*, nsx.ten_nha_san_xuat, lsp.ten_loai_sp FROM sb_san_pham sp
+        $lenh_sql = "SELECT *, nsx.ten_nha_san_xuat, lsp.ten_loai_sp FROM sb_san_pham sp
          JOIN sb_nha_san_xuat nsx ON sp.id_nha_san_xuat = nsx.ID
           JOIN sb_loai_san_pham lsp ON lsp.ID_loai_sp = sp.id_loai_sp WHERE sp.id = $id_sp ;";
         //echo $lenh_sql;
@@ -166,6 +178,23 @@ class xl_san_pham extends database
     {
         $lenh_sql = "DELETE FROM bs_san_pham WHERE id = '$id_sach'";
         //echo $lenh_sql;
+        $this->setQuery($lenh_sql);
+        $result = $this->execute();
+        return $result;
+    }
+    function lay_hinh_san_pham($id_sp)
+    {
+        $lenh_sql = "SELECT ten_hinh FROM sb_hinh_san_pham WHERE id_sp = '$id_sp'";
+        $this->setQuery($lenh_sql);
+        $result = $this->execute();
+        return $result;
+    }
+    function thong_tin_chi_tiet_sp()
+    {
+        $lenh_sql = "SELECT sp.*,sp.id,nsx.ten_nha_san_xuat,lsp.ten_loai_sp 
+        FROM sb_san_pham sp 
+        JOIN sb_nha_san_xuat nsx ON sp.id_nha_san_xuat = nsx.id
+        JOIN sb_loai_san_pham lsp ON sp.id_loai_sp = lsp.ID_loai_sp";
         $this->setQuery($lenh_sql);
         $result = $this->execute();
         return $result;

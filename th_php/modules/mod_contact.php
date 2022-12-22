@@ -27,6 +27,6 @@
             </div>
         </div>
     </div>
-    <?php include_once("../widgets/categories.php"); ?>
+    <?php include_once("widgets/categories.php"); ?>
 
 </div>
