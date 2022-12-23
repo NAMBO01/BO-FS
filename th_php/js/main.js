@@ -6,7 +6,7 @@ $(() => {
 
         id_sp = $(e.target).attr("data-id-sp");
         // console.log('nút mua ngay được click ' + id_sp);
-        $.get("http://localhost:8000/add-gio-hang/" + id_sp)
+        $.get("http://localhost/add-gio-hang/" + id_sp)
             .done((data) => {
                 // console.log(data);
                 var gio_hang = JSON.parse(data);

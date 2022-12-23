@@ -24,23 +24,23 @@ class c_cart
         }
         if (isset($_SESSION["gio_hang"])) {
             if (count($_SESSION["gio_hang"]) > 0) {
-                echo '<!-- Shopping Cart-->
+                echo '
         <div class="table-responsive shopping-cart">
             <table class="table">
                 <thead>
                     <tr>
                         <th>Tên sản phẩm</th>
-                        <th class="text-center">Số lượng</th>
-                        if ($allow_update_cart)
-                        <th class="text-center">Đơn giá</th>
-                        <th class="text-center">Giá được giảm</th>
-                        }
-                        <th class="text-center">Thành tiền</th>
-                        if ($allow_update_cart)
-                        <th class="text-center"><a class="btn btn-sm btn-outline-danger" onclick="xoa_gio_hang(event)" href="#">Xóa toàn bộ</a>
-                        </th>
-                        }
-                    </tr>
+                        <th class="text-center">Số lượng</th>';
+                if ($allow_update_cart) {
+                    echo '<th class="text-center">Đơn giá</th>
+                        <th class="text-center">Giá được giảm</th>';
+                }
+                echo '<th class="text-center">Thành tiền</th>';
+                if ($allow_update_cart) {
+                    echo '<th class="text-center"><a class="btn btn-sm btn-outline-danger" onclick="xoa_gio_hang(event)" href="#">Xóa toàn bộ</a>
+                        </th>';
+                }
+                echo '</tr>
                 </thead>
                 <tbody>';
                 foreach ($_SESSION["gio_hang"] as $sp_gio_hang) {

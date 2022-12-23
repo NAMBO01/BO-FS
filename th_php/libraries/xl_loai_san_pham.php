@@ -26,4 +26,10 @@ class xl_loai_san_pham extends database
         $result = $this->loadAllRow();
         return $result;
     }
+    function loai_san_pham(){
+        $lenh_sql = "SELECT * FROM sb_loai_san_pham ";
+        $this->setQuery($lenh_sql);
+        $result = $this->loadAllRow();
+        return $result;  
+    }
 }

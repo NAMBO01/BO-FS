@@ -3,6 +3,9 @@ include_once './controller/c_cart.php';
 
 $controller = new c_cart();
 ?>
+<?php error_reporting(0); ?>
+
+
 <!DOCTYPE html>
 
 <html>
