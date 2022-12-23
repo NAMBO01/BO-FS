@@ -40,12 +40,11 @@ class xl_user extends database
         return $result;
     }
 
-    function them_nguoi_dung($email, $ho, $mat_khau, $ten, $dien_thoai, $ngay_sinh, $ma_loai_user = 1)
+    function them_nguoi_dung($email, $ho, $ten, $mat_khau,  $dien_thoai, $ma_loai_user = 1)
     {
         $mat_khau = md5($mat_khau);
-        $ngay_hien_tai = date("Y-m-d H:i:s");
-        $lenh_sql = "INSERT INTO sb_user(email,ho,mat_khau,ten,ngay_sinh,dia_chi,avatar,dien_thoai,ma_loai_user) 
-    	 				VALUES('$email','$ho','$mat_khau','$ten','$ngay_sinh,'$dien_thoai','$ma_loai_user') ";
+        $lenh_sql = "INSERT INTO sb_user(email,ho,ten,mat_khau,dien_thoai,id_loai_user) 
+    	 				VALUES('$email','$ho','$ten','$mat_khau','$dien_thoai','$ma_loai_user') ";
         //echo $lenh_sql;
         $this->setQuery($lenh_sql);
         $result = $this->execute();

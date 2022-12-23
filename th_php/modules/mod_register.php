@@ -17,8 +17,6 @@
                     <span>Phone Number<label>*</label></span>
                     <input type="text" name='sdt' id='' class="form-control">
 
-                    <span>DATE OF BIRTH<label>*</label></span>
-                    <input type="date" name='ngay_sinh' id='' class="form-control">
                 </div>
                 <div class="clearfix"> </div>
                 <a class="news-letter" href="#">
@@ -34,15 +32,17 @@
                     <input type="password" name="re_mat_khau" id="re_password" class="form-control">
                 </div>
             </div>
+            <div class="register-but">
+
+                <input type="submit" value="submit" name='btn_submit' id='btn_submit'>
+                <div class="clearfix"> </div>
+            </div>
         </form>
         <div class="clearfix"> </div>
         <div class="register-but">
-            <form>
-                <input type="submit" value="submit" name='btn_submit' id='btn_submit'>
-                <div class="clearfix"> </div>
-            </form>
+
         </div>
     </div>
     <?php include_once("widgets/categories.php"); ?>
-   
+
 </div>

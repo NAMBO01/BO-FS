@@ -1,6 +1,5 @@
 <?php
 include_once './libraries/xl_san_pham.php';
-session_start();
 class c_san_pham
 {
     private $xl_san_pham;
@@ -151,7 +150,7 @@ class c_san_pham
                 <span class="reducedfrom">' . number_format($sp->gia_giam) . 'VND</span>
             </div>
         </div>
-        <a class="view-all all-product" href="product-type.php?id_loai_sp=*">VIEW ALL PRODUCTS<span> </span></a>';
+        <a class="view-all all-product" href="product_type.php?id_loai_sp=*">VIEW ALL PRODUCTS<span> </span></a>';
         }
     }
 
@@ -253,5 +252,4 @@ class c_san_pham
             echo '<h4>' . $name->ten_loai_sp . '</h4>';
         }
     }
-    
 }

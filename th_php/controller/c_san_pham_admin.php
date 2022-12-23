@@ -94,7 +94,7 @@ class c_san_pham_admin
              <td>
                  <div class="btn-group">
                      <a class="btn btn-primary" href="trang_edit_san_pham.php?id_sp=' . $san_pham["id"] . '"><i class="icon_pencil"></i></a>
-                    <a class="btn btn-danger" onclick="return confirm_delete();" href="/admin/ql-san-pham/delete/' . $san_pham["id"] . '"><i class="icon_trash"></i></a>
+                    <a class="btn btn-danger" onclick="return confirm_delete();" href="delete.php?id=' . $san_pham["id"] . '"><i class="icon_trash"></i></a>
                 </div>
             </td>
         </tr> ';

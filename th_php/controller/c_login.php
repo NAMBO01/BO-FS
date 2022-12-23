@@ -66,7 +66,6 @@ class c_login
             $ho   = ($_POST["ho"]);
             $ten   = ($_POST["ten"]);
             $sdt   = ($_POST["sdt"]);
-            $ngay_sinh = ($_POST["ngay_sinh"]);
             //Kiểm tra người dùng đã nhập liệu đầy đủ chưa
             if (!$password || !$email || !$ho || !$ten || !$sdt) {
                 echo "Vui lòng nhập đầy đủ thông tin. <a href='javascript: history.go(-1)'>Trở lại</a>";
@@ -83,17 +82,19 @@ class c_login
                 exit;
             }
 
-            $addmember = $this->xl_user->them_nguoi_dung($email, $ho, $ten, $sdt, $ngay_sinh, $password, $id_loai_user = 1);
+            $addmember = $this->xl_user->them_nguoi_dung($email, $ho, $ten, $sdt, $password, $id_loai_user = 1);
 
             //Thông báo quá trình lưu
-            if ($addmember)
-                echo "Quá trình đăng ký thành công. <a href='/'>Về trang chủ</a>";
-            else
+            if ($addmember) {
+                echo "<script>alert('Quá trình đăng ký thành công')</script>.";
+                header("Location:index.php");
+            } else {
                 echo "Có lỗi xảy ra trong quá trình đăng ký. <a href='dangky.php'>Thử lại</a>";
+            }
         }
-    }
-    function logout()
-    {
-        unset($_SESSION['user_info']);
+        function logout()
+        {
+            unset($_SESSION['user_info']);
+        }
     }
 }

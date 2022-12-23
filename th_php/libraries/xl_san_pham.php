@@ -124,7 +124,7 @@ class xl_san_pham extends database
 
     function xoa_san_pham_theo_id($id_san_pham)
     {
-        $lenh_sql = "DELETE FROM bs_san_pham WHERE id = '$id_san_pham'";
+        $lenh_sql = "DELETE FROM sb_san_pham WHERE ID = '$id_san_pham'";
         //echo $lenh_sql;
         $this->setQuery($lenh_sql);
         $result = $this->execute();

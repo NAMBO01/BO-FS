@@ -1,6 +1,8 @@
 <?php
 include_once './controller/c_loai_san_pham.php';
+include_once './controller/c_san_pham.php';
 $controller_2 = new c_loai_san_pham();
+$controller = new c_san_pham();
 ?>
 <div class="sub-cate">
     <div class=" top-nav rsidebar span_1_of_left">
