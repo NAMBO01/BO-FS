@@ -11,34 +11,50 @@ class c_login
     }
     function login()
     {
+        // Check if the login form has been submitted.
         if (isset($_POST['login'])) {
+            // Get the email and password values from the form.
             $email = ($_POST["email"]);
             $password = ($_POST["mat_khau"]);
 
+            // Check if either the email or password is empty.
             if (!$email || !$password) {
+                // Display an alert if either field is empty and exit the function.
                 echo "<script>alert('Vui lòng nhập đầy đủ email và mật khẩu')</script>.";
                 exit;
             }
 
+            // Hash the password.
             $password = md5($password);
 
+            // Get the user object with the given email.
             $query = $this->xl_user->thong_tin_nguoi_dung_theo_email($email);
+
+            // Check if the email does not exist in the database.
             if ($email != $query->email) {
+                // Display an alert and exit the function if the email does not exist.
                 echo "<script>alert('Email này không tồn tại. Vui lòng kiểm tra lại')</script>";
                 exit;
             }
 
+            // Get the hashed password stored in the database.
             $row = $query->mat_khau;
 
+            // Check if the entered password does not match the stored password.
             if ($password != $row) {
+                // Display an alert and exit the function if the passwords do not match.
                 echo "<script>alert('Mật khẩu không đúng. Vui lòng nhập lại.')</script>";
                 exit;
             }
+
+            // Set the user_info session variable to the user object.
             $_SESSION['user_info'] = $query;
+
+            // Display an alert indicating that the login was successful.
             echo "<script>alert('Bạn đã đăng nhập thành công')</script>";
         }
     }
-    
+
 
     function register()
     {
